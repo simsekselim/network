@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.simsekselim:network:1.0.8'
+  implementation 'com.github.simsekselim:network:1.0.9'
 }
 ```
 
