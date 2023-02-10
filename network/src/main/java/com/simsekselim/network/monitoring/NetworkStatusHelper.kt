@@ -14,7 +14,6 @@ import androidx.lifecycle.LiveData
 
 class NetworkStatusHelper(context: Context) : LiveData<NetworkStatus>() {
 
-
     val validatedNetworkConnections: ArrayList<Network> = ArrayList()
     var connectivityManager: ConnectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -46,19 +45,6 @@ class NetworkStatusHelper(context: Context) : LiveData<NetworkStatus>() {
             override fun onLost(network: Network) {
                 super.onLost(network)
                 validatedNetworkConnections.remove(network)
-                announceStatus()
-            }
-
-            override fun onCapabilitiesChanged(
-                network: Network,
-                networkCapabilities: NetworkCapabilities
-            ) {
-                super.onCapabilitiesChanged(network, networkCapabilities)
-                if (networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                    validatedNetworkConnections.add(network)
-                } else {
-                    validatedNetworkConnections.remove(network)
-                }
                 announceStatus()
             }
         }
