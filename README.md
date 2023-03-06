@@ -22,31 +22,31 @@ dependencies {
 ## Usage
 
 ```kotlin 
-   private fun observeNetworkConnection(){
-        NetworkStatusHelper(applicationContext).observe(this) { networkStatus ->
-            when (networkStatus) {
-                is NetworkStatus.Available -> {
-                    display(networkStatus)
-                }
-                is NetworkStatus.Unavailable -> {
-                    display(networkStatus)
-                }
+private fun observeNetworkConnection(){
+    NetworkStatusHelper(applicationContext).observe(this) { networkStatus ->
+        when (networkStatus) {
+            is NetworkStatus.Available -> {
+                display(networkStatus)
+            }
+            is NetworkStatus.Unavailable -> {
+                display(networkStatus)
             }
         }
     }
+}
 
-    private fun display(status: NetworkStatus) {
-        binding.apply {
-            when (status) {
-                is NetworkStatus.Available -> {
-                    animateNetworkLayout(true)
-                }
-                is NetworkStatus.Unavailable -> {
-                    animateNetworkLayout(false)
-                }
+private fun display(status: NetworkStatus) {
+    binding.apply {
+         when (status) {
+            is NetworkStatus.Available -> {
+                // Your Code Here
             }
-        }
-    }
+            is NetworkStatus.Unavailable -> {
+                // Your Code Here
+            }
+        }        
+    } 
+}
 ```
 
  # Author
