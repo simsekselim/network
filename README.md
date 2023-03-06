@@ -19,5 +19,34 @@ dependencies {
 }
 ```
 
+##Usage
+
+```private fun observeNetworkConnection(){
+        NetworkStatusHelper(applicationContext).observe(this) { networkStatus ->
+            when (networkStatus) {
+                is NetworkStatus.Available -> {
+                    display(networkStatus)
+                }
+                is NetworkStatus.Unavailable -> {
+                    display(networkStatus)
+                }
+            }
+        }
+    }
+
+    private fun display(status: NetworkStatus) {
+        binding.apply {
+            when (status) {
+                is NetworkStatus.Available -> {
+                    animateNetworkLayout(true)
+                }
+                is NetworkStatus.Unavailable -> {
+                    animateNetworkLayout(false)
+                }
+            }
+        }
+    }
+```
+
  # Author
  [![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/simsekselim/) [![Medium](https://img.shields.io/badge/-medium-grey?logo=medium)](https://medium.com/@simsekselim)  
