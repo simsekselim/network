@@ -22,7 +22,7 @@ dependencies {
 ## Usage
 
 ```kotlin 
-private fun observeNetworkConnection(){
+   private fun observeNetworkConnection(){
         NetworkStatusHelper(applicationContext).observe(this) { networkStatus ->
             when (networkStatus) {
                 is NetworkStatus.Available -> {
